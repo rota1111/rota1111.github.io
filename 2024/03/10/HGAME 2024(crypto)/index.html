@@ -20,30 +20,32 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="少年不惧岁月长，彼方尚有荣光在">
-<meta property="og:type" content="website">
+  <meta name="description" content="HGAME 2024 week4(crypto)lastRSA这题如何求leak0我想了很久,但实际上套个Franklin-Reiter相关消息攻击的板子就能求得leak0,代码如下:   12345678910111213141516171819n&#x3D;13615950139560824659243328354176364219629582765229028772973875132714168776">
+<meta property="og:type" content="article">
 <meta property="og:title" content="rota">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2024/03/10/HGAME%202024(crypto)/index.html">
 <meta property="og:site_name" content="rota">
-<meta property="og:description" content="少年不惧岁月长，彼方尚有荣光在">
+<meta property="og:description" content="HGAME 2024 week4(crypto)lastRSA这题如何求leak0我想了很久,但实际上套个Franklin-Reiter相关消息攻击的板子就能求得leak0,代码如下:   12345678910111213141516171819n&#x3D;13615950139560824659243328354176364219629582765229028772973875132714168776">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-10T08:11:11.902Z">
+<meta property="article:modified_time" content="2024-02-28T07:15:21.157Z">
 <meta property="article:author" content="rota">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2024/03/10/HGAME%202024(crypto)/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>rota</title>
+  <title> | rota</title>
   
 
 
@@ -151,9 +153,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -169,10 +172,9 @@
       <meta itemprop="name" content="rota">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2024/03/10/HGAME%202024(crypto)/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -202,7 +204,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="HGAME-2024-week4-crypto"><a href="#HGAME-2024-week4-crypto" class="headerlink" title="HGAME 2024 week4(crypto)"></a>HGAME 2024 week4(crypto)</h1><h2 id="lastRSA"><a href="#lastRSA" class="headerlink" title="lastRSA"></a>lastRSA</h2><p>这题如何求leak0我想了很久,但实际上套个Franklin-Reiter相关消息攻击的板子就能求得leak0,代码如下:  </p>
+        <h1 id="HGAME-2024-week4-crypto"><a href="#HGAME-2024-week4-crypto" class="headerlink" title="HGAME 2024 week4(crypto)"></a>HGAME 2024 week4(crypto)</h1><h2 id="lastRSA"><a href="#lastRSA" class="headerlink" title="lastRSA"></a>lastRSA</h2><p>这题如何求leak0我想了很久,但实际上套个Franklin-Reiter相关消息攻击的板子就能求得leak0,代码如下:  </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">n=136159501395608246592433283541763642196295827652290287729738751327141687762873360488671062583851846628664067117347340297084457474032286451582225574885517757497232577841944028986878525656103449482492190400477852995620473233002547925192690737520592206832895895025277841872025718478827192193010765543046480481871       </span><br><span class="line">enc1=2481998981478152169164378674194911111475668734496914731682204172873045273889232856266140236518231314247189371709204253066552650323964534117750428068488816244218804456399611481184330258906749484831445348350172666468738790766815099309565494384945826796034182837505953580660530809234341340618365003203562639721024   </span><br><span class="line">enc2=2892413486487317168909532087203213279451225676278514499452279887449096190436834627119161155437012153025493797437822039637248773941097619806471091066094500182219982742574131816371999183859939231601667171386686480639682179794271743863617494759526428080527698539121555583797116049103918578087014860597240690299394   </span><br><span class="line">c=87077759878060225287052106938097622158896106278756852778571684429767457761148474369973882278847307769690207029595557915248044823659812747567906459417733553420521047767697402135115530660537769991893832879721828034794560921646691417429690920199537846426396918932533649132260605985848584545112232670451169040592        </span><br><span class="line">e = 41</span><br><span class="line">t = 114514</span><br><span class="line">def franklinReiter(n,e,c1,c2):</span><br><span class="line">    PR.&lt;x&gt; = PolynomialRing(Zmod(n))</span><br><span class="line">    g1 = (x+2*t)^e-(c1-2023)*(x+2*t)+enc1-2024</span><br><span class="line">    g2 = (x*2*t)^e-(c2-2023)*(x*2*t)+enc2-2024</span><br><span class="line"></span><br><span class="line">    def gcd(g1, g2):</span><br><span class="line">        while g2:</span><br><span class="line">            g1, g2 = g2, g1 % g2</span><br><span class="line">        return g1.monic()</span><br><span class="line">    return -gcd(g1, g2)[0]</span><br><span class="line"></span><br><span class="line">leak0=franklinReiter(n,e,enc1,enc2)</span><br><span class="line">#leak0=13168452015078389807681744077701012683188749953280204324570483361963541298704796389757190180549802771265899020301416729606658667351017116721327316272373584</span><br></pre></td></tr></table></figure>
 <p>然后由于leak0是p^(q&gt;&gt;13),这里注意一下，刚开始我把这个看成了次方，实际上是异或。对于这种异或类的网上是有现成的板子,<a target="_blank" rel="noopener" href="https://tangcuxiaojikuai.xyz/post/342113ee.html">请参考大佬的博客</a>,<br>然后把大佬的代码拿来改了改，最后脚本如下:  </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#print(bin(leak0)[0:15])</span><br><span class="line">#1111101101101 前十三位已知</span><br><span class="line">a1=str(bin(leak0)[15:])</span><br><span class="line"></span><br><span class="line">def find(p,q):</span><br><span class="line">    x = len(p)</span><br><span class="line">    tmp0 = &#x27;1111101101101&#x27;+ p + (499-x)*&quot;0&quot;</span><br><span class="line">    tmp1 = &#x27;1111101101101&#x27;+ p + (499-x)*&quot;1&quot;</span><br><span class="line">    tmq0 = q + (512-x)*&quot;0&quot;</span><br><span class="line">    tmq1 = q + (512-x)*&quot;1&quot;</span><br><span class="line">    if(int(tmp0,2)*int(tmq0,2) &gt; n):</span><br><span class="line">        return </span><br><span class="line">    elif(int(tmp1,2)*int(tmq1,2) &lt; n):</span><br><span class="line">        return</span><br><span class="line">    pp = int(tmp0,2)</span><br><span class="line">    if(n % pp == 0):</span><br><span class="line">        print(pp)</span><br><span class="line">        return 0</span><br><span class="line">    else:</span><br><span class="line">        if(a1[x] == &quot;1&quot;):</span><br><span class="line">            find(p+&quot;1&quot;,q+&quot;0&quot;)</span><br><span class="line">            find(p+&quot;0&quot;,q+&quot;1&quot;)</span><br><span class="line">        else:</span><br><span class="line">            find(p+&quot;0&quot;,q+&quot;0&quot;)</span><br><span class="line">            find(p+&quot;1&quot;,q+&quot;1&quot;)</span><br><span class="line"></span><br><span class="line">tempp = &quot;&quot;</span><br><span class="line">tempq = &quot;&quot;</span><br><span class="line">find(tempp,tempq)</span><br><span class="line"># 13167244882304693277785720567493996610066918256369682594482416913362069704726831109204371100970154866396462315730687841430922916219416627940866383413192931</span><br></pre></td></tr></table></figure>
@@ -212,91 +214,30 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">from math import gcd</span><br><span class="line"></span><br><span class="line">def ison(C, P):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Verification points are on the curve</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    c, d, p = C</span><br><span class="line">    u, v = P</span><br><span class="line">    return (u**2 + v**2 - cc * (1 + d * u**2*v**2)) % p == 0</span><br><span class="line"></span><br><span class="line">def a_and_b(u1,u2,v1,v2):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Helper function used to simplify calculations</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    a12 = u1**2 - u2**2 + v1**2 - v2**2</span><br><span class="line">    b12 = u1**2 * v1**2 - u2**2 * v2**2</span><br><span class="line">    return a12, b12</span><br><span class="line"></span><br><span class="line">def find_modulus(u1,u2,u3,u4,v1,v2,v3,v4):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Compute the modulus from four points</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    a12, b12 = a_and_b(u1,u2,v1,v2)</span><br><span class="line">    a13, b13 = a_and_b(u1,u3,v1,v3)</span><br><span class="line">    a23, b23 = a_and_b(u2,u3,v2,v3)</span><br><span class="line">    a24, b24 = a_and_b(u2,u4,v2,v4)</span><br><span class="line"></span><br><span class="line">    p_almost = gcd(a12*b13 - a13*b12, a23*b24 - a24*b23)</span><br><span class="line"></span><br><span class="line">    for i in range(2,1000):</span><br><span class="line">        if p_almost % i == 0:</span><br><span class="line">            p_almost = p_almost // i</span><br><span class="line"></span><br><span class="line">    return p_almost</span><br><span class="line"></span><br><span class="line">def c_sq_d(u1,u2,v1,v2,p):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Helper function to computer c^2 d</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    a1,b1 = a_and_b(u1,u2,v1,v2)</span><br><span class="line">    return a1 * pow(b1,-1,p) % p</span><br><span class="line"></span><br><span class="line">def c(u1,u2,v1,v2,p):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Compute c^2, d from two points and known modulus</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    ccd = c_sq_d(u1,u2,v1,v2,p)</span><br><span class="line">    cc = (u1**2 + v1**2 - ccd*u1**2*v1**2) % p</span><br><span class="line">    d = ccd * pow(cc, -1, p) % p</span><br><span class="line">    return cc, d</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">P = (423323064726997230640834352892499067628999846, 44150133418579337991209313731867512059107422186218072084511769232282794765835)</span><br><span class="line">Q = (1033433758780986378718784935633168786654735170, 2890573833121495534597689071280547153773878148499187840022524010636852499684)</span><br><span class="line">S = (875772166783241503962848015336037891993605823, 51964088188556618695192753554835667051669568193048726314346516461990381874317)</span><br><span class="line">T = (612403241107575741587390996773145537915088133, 64560350111660175566171189050923672010957086249856725096266944042789987443125)</span><br><span class="line"></span><br><span class="line">u1, v1 = P</span><br><span class="line">u2, v2 = Q</span><br><span class="line">u3, v3 = S</span><br><span class="line">u4, v4 = T</span><br><span class="line"></span><br><span class="line">p = find_modulus(u1,u2,u3,u4,v1,v2,v3,v4)</span><br><span class="line">cc, d = c(u1,u2,v1,v2,p)</span><br><span class="line"></span><br><span class="line">C = cc, d, p</span><br><span class="line">assert ison(C, P)</span><br><span class="line">assert ison(C, Q)</span><br><span class="line">assert ison(C, S)</span><br><span class="line">assert ison(C, T)</span><br><span class="line"></span><br><span class="line">print(f&#x27;Found curve parameters&#x27;)</span><br><span class="line">print(f&#x27;p = &#123;p&#125;&#x27;)</span><br><span class="line">print(f&#x27;c^2 = &#123;cc&#125;&#x27;)</span><br><span class="line">print(f&#x27;d = &#123;d&#125;&#x27;)</span><br><span class="line">F = GF(p)</span><br><span class="line">c = F(cc).sqrt()</span><br><span class="line">print(c)</span><br><span class="line">#p = 67943764351073247630101943221474884302015437788242536572067548198498727238923</span><br><span class="line">#c^2 = 12908728488299650872377430201970332178171657588185291326485782119189255844928</span><br><span class="line">#d = 8779982120820562807260290996171144226614358666469579196351820160975526615300</span><br><span class="line">#c=7143899698109428282870539364581968579753042129945786627292343174759297201080</span><br></pre></td></tr></table></figure>
 <p>然后已知曲线参数后，要求G的值，如果是ECC，直接eG*inverse_mod(e,p)。类似地先转为ECC上的点，求出G后再转换为在这条曲线上的G,<a target="_blank" rel="noopener" href="https://tangcuxiaojikuai.xyz/post/187210a7.html">也是有现成的板子</a>,代码如下:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">a = 1</span><br><span class="line">e = 0x10001</span><br><span class="line">eG = (40198712137747628410430624618331426343875490261805137714686326678112749070113, 65008030741966083441937593781739493959677657609550411222052299176801418887407)</span><br><span class="line"></span><br><span class="line">F = GF(p)</span><br><span class="line">dd = F(d*c^4)</span><br><span class="line">A = F(2) * F(a+dd) / F(a-dd)</span><br><span class="line">B = F(4) / F(a-dd)</span><br><span class="line">a = F(3-A^2) / F(3*B^2)</span><br><span class="line">b = F(2*A^3-9*A) / F(27*B^3)</span><br><span class="line"></span><br><span class="line">def edwards_to_ECC(x,y):</span><br><span class="line">    x1 = F(x) / F(c)</span><br><span class="line">    y1 = F(y) / F(c)</span><br><span class="line">    #now curve is a*x^2+y^2 = 1+dd*x^2*y^2</span><br><span class="line"></span><br><span class="line">    x2 = F(1+y1) / F(1-y1)</span><br><span class="line">    y2 = F(x2) / F(x1)</span><br><span class="line">    #now curve is By^2 = x^3 + Ax^2 + x</span><br><span class="line"></span><br><span class="line">    x3 = (F(3*x2) + F(A)) / F(3*B)</span><br><span class="line">    y3 = F(y2) / F(B)</span><br><span class="line">    #now curve is y^2 = x^3 + ax + b</span><br><span class="line"></span><br><span class="line">    return (x3,y3)</span><br><span class="line"> </span><br><span class="line">def ECC_to_edwards(x,y):</span><br><span class="line">    x2 = (F(x) * F(3*B) - F(A)) / F(3)</span><br><span class="line">    y2 = F(y) * F(B)</span><br><span class="line">    #now curve is By^2 = x^3 + Ax^2 + x</span><br><span class="line"></span><br><span class="line">    x1 = F(x2) / F(y2)</span><br><span class="line">    y1 = F(1) - (F(2) / F(x2+1))</span><br><span class="line">    #now curve is a*x^2+y^2 = 1+dd*x^2*y^2</span><br><span class="line"></span><br><span class="line">    x_ = F(x1) * F(c)</span><br><span class="line">    y_ = F(y1) * F(c)</span><br><span class="line">    #now curve is a*x^2+y^2 = c^2(1+d*x^2*y^2)</span><br><span class="line">    </span><br><span class="line">    return (x_,y_)</span><br><span class="line"> </span><br><span class="line">E = EllipticCurve(GF(p), [a, b])</span><br><span class="line">order = E.order()</span><br><span class="line">eG = E(edwards_to_ECC(eG[0],eG[1]))</span><br><span class="line">t = inverse(e,order)</span><br><span class="line">G = t*eG</span><br><span class="line">G = ECC_to_edwards(G[0],G[1])</span><br><span class="line">flag = &quot;hgame&#123;&quot; + hex(int(G[0])+int(G[1]))[2:] + &quot;&#125;&quot;</span><br><span class="line">print(flag)</span><br><span class="line"># hgame&#123;7c91b51150e2339628f10c5be61d49bbf9471ef00c9b94bb0473feac06303bcc&#125;</span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/10/hello-world/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="rota">
-      <meta itemprop="description" content="少年不惧岁月长，彼方尚有荣光在">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="rota">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/10/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-03-10 15:40:05" itemprop="dateCreated datePublished" datetime="2024-03-10T15:40:05+08:00">2024-03-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/10/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -349,6 +290,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HGAME-2024-week4-crypto"><span class="nav-number">1.</span> <span class="nav-text">HGAME 2024 week4(crypto)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lastRSA"><span class="nav-number">1.1.</span> <span class="nav-text">lastRSA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transformation"><span class="nav-number">1.2.</span> <span class="nav-text">transformation</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
