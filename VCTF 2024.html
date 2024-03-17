@@ -21,18 +21,18 @@
   </script>
 
   <meta name="description" content="crypto狂飚这一题是AES的CBC模式,只有key未知,由n&#x3D;m % key得m-n&#x3D;k*key,因此key一定是m-n的因数,可以爆破得到key,从而进行解密,脚本如下: 1234567891011121314151617from Crypto.Util.number import *from Crypto.Cipher import AESm &#x3D; 88007513702">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="vctf 2024 wp">
-<meta property="og:url" content="http://example.com/2024/03/17/VCTF%202024/index.html">
+<meta property="og:url" content="http://example.com/VCTF%202024.html">
 <meta property="og:site_name" content="rota">
 <meta property="og:description" content="crypto狂飚这一题是AES的CBC模式,只有key未知,由n&#x3D;m % key得m-n&#x3D;k*key,因此key一定是m-n的因数,可以爆破得到key,从而进行解密,脚本如下: 1234567891011121314151617from Crypto.Util.number import *from Crypto.Cipher import AESm &#x3D; 88007513702">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-17T02:32:13.000Z">
+<meta property="article:published_time" content="2024-03-17T02:43:20.762Z">
 <meta property="article:modified_time" content="2024-03-17T02:40:01.265Z">
 <meta property="article:author" content="rota">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2024/03/17/VCTF%202024/">
+<link rel="canonical" href="http://example.com/VCTF%202024">
 
 
 <script id="page-configurations">
@@ -40,12 +40,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>vctf 2024 wp | rota</title>
+  <title>vctf 2024 wp | rota
+</title>
   
 
 
@@ -152,60 +153,33 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
-          <div class="content post posts-expand">
+          <div class="content page posts-expand">
             
 
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/17/VCTF%202024/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="rota">
-      <meta itemprop="description" content="少年不惧岁月长，彼方尚有荣光在">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="rota">
-    </span>
+    
+    
+    <div class="post-block" lang="zh-CN">
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          vctf 2024 wp
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
+<h1 class="post-title" itemprop="name headline">vctf 2024 wp
+</h1>
 
-              <time title="创建时间：2024-03-17 10:32:13 / 修改时间：10:40:01" itemprop="dateCreated datePublished" datetime="2024-03-17T10:32:13+08:00">2024-03-17</time>
-            </span>
+<div class="post-meta">
+  
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
+</div>
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-        <h2 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h2><h3 id="狂飚"><a href="#狂飚" class="headerlink" title="狂飚"></a>狂飚</h3><p>这一题是AES的CBC模式,只有key未知,由n&#x3D;m % key得m-n&#x3D;k*key,因此key一定是m-n的因数,可以爆破得到key,从而进行解密,脚本如下:</p>
+      
+      
+      <div class="post-body">
+          <h2 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h2><h3 id="狂飚"><a href="#狂飚" class="headerlink" title="狂飚"></a>狂飚</h3><p>这一题是AES的CBC模式,只有key未知,由n&#x3D;m % key得m-n&#x3D;k*key,因此key一定是m-n的因数,可以爆破得到key,从而进行解密,脚本如下:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">from Crypto.Cipher import AES</span><br><span class="line">m = 88007513702424243702066490849596817304827839547007641526433597788800212065249</span><br><span class="line">n = 103560843006078708944833658339172896192389513625588</span><br><span class="line">s = divisors(m-n)</span><br><span class="line">enc_flag=b&#x27;\xfc\x87\xcb\x8e\x9d\x1a\x17\x86\xd9~\x16)\xbfU\x98D\xfe\x8f\xde\x9c\xb0\xd1\x9e\xe7\xa7\xefiY\x95C\x14\x13C@j1\x9d\x08\xd9\xe7W&gt;F2\x96cm\xeb&#x27;</span><br><span class="line">iv=b&#x27;UN\x1d\xe2r&lt;\x1db\x00\xdb\x9a\x84\x1e\x82\xf0\x86&#x27;</span><br><span class="line">for i in s:</span><br><span class="line">    key = long_to_bytes(i)</span><br><span class="line">    if len(key) == 24: #这里注意一下key的长度,aes是有要求的</span><br><span class="line">        aes = AES.new(key,AES.MODE_CBC,iv)</span><br><span class="line">        flag = aes.decrypt(enc_flag)</span><br><span class="line">        if b&#x27;flag&#x27; in flag:</span><br><span class="line">            print(flag)</span><br><span class="line">            print(i)</span><br><span class="line">#b&#x27;flag&#123;cf735a4d-f9d9-5110-8a73-5017fc39b1b0&#125;\x00\x00\x00\x00\x00\x00&#x27;</span><br><span class="line">#1478350208450139900159081357030859898227287706593004549013</span><br></pre></td></tr></table></figure>
 <p>有一说一divisors函数真好用  </p>
 <h3 id="RRSA"><a href="#RRSA" class="headerlink" title="RRSA"></a>RRSA</h3><p>这题主要利用了o的比特位数大于r,floor(r&#x2F;o)&#x3D;0,可得</p>
@@ -216,32 +190,16 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Runner.instance_.setSpeed(299792458)</span><br><span class="line">#flag&#123;We1c0m3_VCTF_2024&#125;</span><br></pre></td></tr></table></figure>
 <p>顺利拿到flag</p>
 
+      </div>
+      
+      
+      
     </div>
+    
 
     
     
     
-
-      <footer class="post-footer">
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2024/03/10/HGAME%202024(crypto)/" rel="prev" title="HGAME 2024 week4(crypto)">
-      <i class="fa fa-chevron-left"></i> HGAME 2024 week4(crypto)
-    </a></div>
-      <div class="post-nav-item"></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
 
 
           </div>
@@ -306,7 +264,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
